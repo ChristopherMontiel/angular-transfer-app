@@ -5,44 +5,55 @@
     Banco - Tipo de cuenta
     N° de cuenta
 -->
+<form [formGroup] = "formRecipient" (submit) = "onCreate()">
 
-<form action="/">
+   <!-- **** Input de RUT **** -->
   <label for="Rut"> Rut: </label>
-  <input type="text" id = "rut" placeholder="11.111.111-1">
+  <input type="text" id = "rut" formControlName="rut" placeholder="11.111.111-1">
 
+  <!-- **** Input de Nombre **** -->
   <label for="Nombre"> Nombre: </label>
-  <input type="text" id = "nombre" placeholder="Steve Jobs">
-
+  <input type="text" id = "nombre" formControlName="nombre" placeholder="Steve Jobs">
   <br>
 
+  <!-- **** Input de mail **** -->
   <label for="Correo"> Correo: </label>
-  <input type="text" id = "correo" placeholder="ejemplo@test.cl">
+  <input type="text" id = "correo" formControlName="correo" placeholder="ejemplo@test.cl">
 
+  <!-- **** Input de teléfono **** -->
   <label for="Teléfono"> Teléfono: </label>
-  <input type="number" id = "telefono" placeholder="+56911111111">
-
+  <input type="number" id = "telefono" formControlName="telefono" placeholder="+56911111111">
   <br>
 
+<!-- **** Input de Banco **** -->
   <label for="Banco">Banco: </label>
-  <select name = "Bancos" placeholder = "Seleccione banco" >
+  <select name = "banco" formControlName="banco" >
     <option > --Select -- </option>
     <option *ngFor="let bank of bankList">
       {{bank.name}}
     </option>
   </select>
 
-
+  <!-- **** Input tipo de cuenta **** -->
   <label for="Tipo de Cuenta"> Tipo de Cuenta: </label>
-  <select name = "Bancos" placeholder = "Seleccione banco" >
+  <select name = "cuenta" formControlName="cuenta" >
     <option > --Select -- </option>
     <option> Cta. Vista </option>
     <option> Cta. Corriente </option>
     <option> Cta. de Ahorro </option>
   </select>
-
   <br>
 
+  <!-- **** Input n° de cuenta **** -->
   <label for="N° de Cuenta"> N° de Cuenta: </label>
-  <input type="number" id = "nCuenta" placeholder="11111111">
+  <input type="number" id = "nCuenta" formControlName="nCuenta" placeholder="11111111">
+  <br>
+
+  <!-- **** BUTTON **** -->
+  <button onclick=""> Enviar</button>
 
 </form>
+
+<div>
+  Valido: {{ formRecipient.valid | json }}
+</div>
