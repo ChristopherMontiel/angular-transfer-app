@@ -8,12 +8,12 @@ import { BankListI } from '../models/bankList.interface';
 })
 export class GetBanksService {
 
-  private ulrEndPoint: string = 'https://bast.dev/api/banks.php';
+  private urlEndPoint: string = 'https://bast.dev/api/banks.php';
 
   constructor(private http:HttpClient) { }
 
   getAllBanks():Observable<BankListI[]>{
-    return this.http.get<BankListI[]>(this.ulrEndPoint);
+    return this.http.get<BankListI[]>(this.urlEndPoint);
   }
 
 }
