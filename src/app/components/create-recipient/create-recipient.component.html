@@ -1,52 +1,60 @@
 <h1>Nuevo Destinatario</h1>
+<br>
 <!--
-    Rut - Nombre
-    Correo - Telefono
-    Banco - Tipo de cuenta
+    Rut           -     Nombre
+    Correo        -     Telefono
+    Banco         -     Tipo de cuenta
     N° de cuenta
+    [Enviar]
 -->
-<form [formGroup] = "formRecipient" (ngSubmit) = "onCreate(formRecipient.value)">
+<form class="row g-3" [formGroup] = "formRecipient" (ngSubmit) = "onCreate(formRecipient.value)">
 
-   <!-- **** Input de RUT **** -->
-  <label for="Rut"> Rut: </label>
-  <input type="text" id = "rut" formControlName="rut" placeholder="11.111.111-1">
-
+  <!-- **** Input de RUT **** -->
+  <div class="col-md-6">
+    <label class="form-label" for="Rut"> Rut: </label>
+    <input type="text" class="form-control" id = "rut" formControlName="rut" placeholder="11.111.111-1">
+  </div>
   <!-- **** Input de Nombre **** -->
-  <label for="Nombre"> Nombre: </label>
-  <input type="text" id = "name" formControlName="name" placeholder="Steve Jobs">
-  <br>
+  <div class="col-md-6">
+    <label class="form-label" for="Nombre"> Nombre: </label>
+    <input class="form-control" type="text" id = "name" formControlName="name" placeholder="Steve Jobs">
+  </div>
 
   <!-- **** Input de mail **** -->
-  <label for="Correo"> Correo: </label>
-  <input type="text" id = "mail" formControlName="mail" placeholder="ejemplo@test.cl">
-
+  <div class="col-md-6">
+    <label class="form-label" for="Correo"> Correo: </label>
+    <input class="form-control" type="text" id = "mail" formControlName="mail" placeholder="ejemplo@test.cl">
+  </div>
   <!-- **** Input de teléfono **** -->
-  <label for="Teléfono"> Teléfono: </label>
-  <input type="text" id = "phone" formControlName="phone" placeholder="+56911111111">
-  <br>
+  <div class="col-md-6">
+    <label class="form-label" for="Teléfono"> Teléfono: </label>
+    <input class="form-control" type="text" id = "phone" formControlName="phone" placeholder="+56911111111">
+  </div>
 
-<!-- **** Input de Banco **** -->
-  <label for="Banco">Banco: </label>
-  <select name = "bank" formControlName="bank" >
-    <option > --Select -- </option>
-    <option *ngFor="let bank of bankList">
-      {{bank.name}}
-    </option>
-  </select>
-
+  <!-- **** Input de Banco **** -->
+  <div class="col-md-6">
+    <label class="form-label" for="Banco">Banco: </label>
+    <select class="form-select" name = "bank" formControlName="bank" >
+      <option > --Select -- </option>
+      <option *ngFor="let bank of bankList">
+        {{bank.name}}
+      </option>
+    </select>
+  </div>
   <!-- **** Input tipo de cuenta **** -->
-  <label for="Tipo de Cuenta"> Tipo de Cuenta: </label>
-  <select name = "accType" formControlName="accType" >
-    <option > --Select -- </option>
-    <option> Cta. Vista </option>
-    <option> Cta. Corriente </option>
-    <option> Cta. de Ahorro </option>
-  </select>
-  <br>
+  <div class="col-md-6">
+    <label class="form-label" for="Tipo de Cuenta"> Tipo de Cuenta: </label>
+    <select class="form-select" name = "accType" formControlName="accType" >
+      <option > --Select -- </option>
+      <option> Cta. Vista </option>
+      <option> Cta. Corriente </option>
+      <option> Cta. de Ahorro </option>
+    </select>
+  </div>
 
   <!-- **** Input n° de cuenta **** -->
-  <label for="N° de Cuenta"> N° de Cuenta: </label>
-  <input type="number" id = "accNumber" formControlName="accNumber" placeholder="11111111">
+  <label class="form-label" for="N° de Cuenta"> N° de Cuenta: </label>
+  <input class="form-control" type="number" id = "accNumber" formControlName="accNumber" placeholder="11111111">
   <br>
 
   <!-- **** BUTTON **** -->
@@ -57,3 +65,4 @@
 <div>
   Valido: {{ formRecipient.valid | json }}
 </div>
+<br>
