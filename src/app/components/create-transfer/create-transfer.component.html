@@ -13,11 +13,9 @@
 <label for="recipientList" class="form-label">Buscar Destinatario</label>
 <input class="form-control" list="datalistOptions" id="recipientList" placeholder="Escriba para buscar...">
 <datalist id="datalistOptions">
-  <option value="Juan Perez">
-  <option value="Susan Calisto">
-  <option value="Frederick Soto">
-  <option value="Gustavo Montiel">
-  <option value="Carlos Cespedes">
+  <option *ngFor="let recipient of recipientList">
+    {{recipient.name}}
+  </option>
 </datalist>
 <br>
 

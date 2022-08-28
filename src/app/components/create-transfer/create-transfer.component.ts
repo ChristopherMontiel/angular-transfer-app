@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewRecipientService } from 'src/app/services/new-recipient.service';
 
 @Component({
   selector: 'app-create-transfer',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateTransferComponent implements OnInit {
 
-  constructor() { }
+  public recipientList: any;
+
+  constructor(
+    private apiRecipients: NewRecipientService
+  ) { }
 
   ngOnInit(): void {
+    this.apiRecipients.getRecipients().subscribe( (data: any) =>{
+      console.table(data);
+      this.recipientList = data;
+    });
   }
 
 }

@@ -18,4 +18,9 @@ export class NewRecipientService {
     let urlEndPoint: string = this.url + 'recipients';
     return this.http.post<ResponseI>(urlEndPoint, form);
   }
+
+  getRecipients(): Observable<RecipientI[]>{
+    let urlEndPoint: string = this.url + 'recipients';
+    return this.http.get<RecipientI[]>(urlEndPoint);
+  }
 }

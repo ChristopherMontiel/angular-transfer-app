@@ -35,7 +35,7 @@ export class CreateRecipientComponent implements OnInit {
     );
 
     this.apiBanks.getAllBanks().subscribe( (data: any) =>{
-      //console.log(data);
+      console.table(data.banks);
       this.bankList = data.banks;
     });
   }
