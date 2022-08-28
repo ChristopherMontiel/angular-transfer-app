@@ -18,7 +18,7 @@ export class CreateRecipientComponent implements OnInit {
   ngOnInit(): void {
     this.apiBanks.getAllBanks().subscribe( (data: any) =>{
       //console.log(data);
-      this.bankList = data;
+      this.bankList = data.banks;
     });
   }
 
