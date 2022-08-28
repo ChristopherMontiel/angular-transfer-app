@@ -1,5 +1,6 @@
 export interface RecipientI{
   name: string;
+  rut: string;
   rutNumber: number;
   rutDv: string;
   mail: string;

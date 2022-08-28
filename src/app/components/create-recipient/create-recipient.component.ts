@@ -16,7 +16,8 @@ export class CreateRecipientComponent implements OnInit {
   public formRecipient: FormGroup = new FormGroup({});
 
   constructor(
-    private apiBanks: GetBanksService
+    private apiBanks: GetBanksService,
+    private apiRecipient: NewRecipientService
   ) { }
 
   ngOnInit(): void {
@@ -24,12 +25,12 @@ export class CreateRecipientComponent implements OnInit {
     this.formRecipient = new FormGroup(
       {
         rut: new FormControl('',[Validators.required, Validators.minLength(3)]),
-        nombre: new FormControl('',[Validators.required, Validators.minLength(3)]),
-        correo: new FormControl('', [Validators.required, Validators.email]),
-        telefono: new FormControl('',[Validators.required, Validators.minLength(3)]),
-        banco: new FormControl('',[Validators.required, Validators.minLength(3)]),
-        cuenta: new FormControl('',[Validators.required, Validators.minLength(3)]),
-        nCuenta: new FormControl('',[Validators.required, Validators.minLength(3)])
+        name: new FormControl('',[Validators.required, Validators.minLength(3)]),
+        mail: new FormControl('', [Validators.required, Validators.email]),
+        phone: new FormControl('',[Validators.required, Validators.minLength(3)]),
+        bank: new FormControl('',[Validators.required, Validators.minLength(3)]),
+        accType: new FormControl('',[Validators.required, Validators.minLength(3)]),
+        accNumber: new FormControl('',[Validators.required, Validators.minLength(3)])
       }
     );
 
@@ -39,13 +40,25 @@ export class CreateRecipientComponent implements OnInit {
     });
   }
 
-  /*onCreate(form: RecipientI){
+  onCreate(form: RecipientI){
+    //console.log("longitud del rut: " + form.rut.length);
+    //console.log("transformación:" + form.rut.slice(0, form.rut.length-2));
+    //console.log("transformación:" + form.rut.slice(form.rut.length-1, form.rut.length));
+    form.rutNumber = parseInt(form.rut.slice(0, form.rut.length-2));
+    form.rutDv = form.rut.slice(form.rut.length-1, form.rut.length);
+
+
+    console.log("rutNumber: " + form.rutNumber);
+    console.log("rutDv: " + form.rutDv);
+
+
+    console.log(form);
     this.apiRecipient.createNewRecipient(form).subscribe(data => {
       console.log(data);
     })
-  }*/
-  onCreate(){
-    console.log(this.formRecipient.value);
   }
+ /*  onCreate(){
+    console.log(this.formRecipient.value);
+  } */
 
 }
