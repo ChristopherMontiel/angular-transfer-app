@@ -23,10 +23,7 @@
 
   <br>
 
-  <label for="Banco"> Banco: </label>
-  <input type="text" id = "banco" placeholder="Banco genial">
-
-  <label for="Lista de Bancos"> Lista de Bancos: </label>
+  <label for="Banco">Banco: </label>
   <select name = "Bancos" placeholder = "Seleccione banco" >
     <option > --Select -- </option>
     <option *ngFor="let bank of bankList">
@@ -36,7 +33,12 @@
 
 
   <label for="Tipo de Cuenta"> Tipo de Cuenta: </label>
-  <input type="text" id = "tipoCuenta" placeholder="Cta Vista">
+  <select name = "Bancos" placeholder = "Seleccione banco" >
+    <option > --Select -- </option>
+    <option> Cta. Vista </option>
+    <option> Cta. Corriente </option>
+    <option> Cta. de Ahorro </option>
+  </select>
 
   <br>
 
