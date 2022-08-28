@@ -1,0 +1,46 @@
+<h1>Nuevo Destinatario</h1>
+<!--
+    Rut - Nombre
+    Correo - Telefono
+    Banco - Tipo de cuenta
+    N° de cuenta
+-->
+
+<form action="/">
+  <label for="Rut"> Rut: </label>
+  <input type="text" id = "rut" placeholder="11.111.111-1">
+
+  <label for="Nombre"> Nombre: </label>
+  <input type="text" id = "nombre" placeholder="Steve Jobs">
+
+  <br>
+
+  <label for="Correo"> Correo: </label>
+  <input type="text" id = "correo" placeholder="ejemplo@test.cl">
+
+  <label for="Teléfono"> Teléfono: </label>
+  <input type="number" id = "telefono" placeholder="+56911111111">
+
+  <br>
+
+  <label for="Banco"> Banco: </label>
+  <input type="text" id = "banco" placeholder="Banco genial">
+
+  <label for="Lista de Bancos"> Lista de Bancos: </label>
+  <select name = "Bancos" placeholder = "Seleccione banco" >
+    <option > --Select -- </option>
+    <option *ngFor="let bank of bankList">
+      {{bank.name}}
+    </option>
+  </select>
+
+
+  <label for="Tipo de Cuenta"> Tipo de Cuenta: </label>
+  <input type="text" id = "tipoCuenta" placeholder="Cta Vista">
+
+  <br>
+
+  <label for="N° de Cuenta"> N° de Cuenta: </label>
+  <input type="number" id = "nCuenta" placeholder="11111111">
+
+</form>
