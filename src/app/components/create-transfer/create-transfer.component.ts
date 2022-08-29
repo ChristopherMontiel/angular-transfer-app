@@ -10,12 +10,19 @@ import { NewTransferService } from 'src/app/services/new-transfer.service';
 })
 export class CreateTransferComponent implements OnInit {
 
-  nameSelected! : string;
-  rutNumberSelected!: number;
-  rutDvSelected!: string;
-  mailSelected! : string;
-  bankSelected! : string;
-  accTypeSelected! : string;
+  public nameSelected! : string;
+  public rutNumberSelected!: number;
+  public rutDvSelected!: string;
+  public mailSelected! : string;
+  public bankSelected! : string;
+  public accTypeSelected! : string;
+
+  // Control de feedback reactivo
+  public viewForm: boolean = true;
+  public viewError: boolean = false;
+  public errList: any;
+  public viewOK: boolean = false;
+  public dataList: any;
 
   public recipientList: any;
 
@@ -59,7 +66,7 @@ export class CreateTransferComponent implements OnInit {
     console.log(amountInput);
     let dat = new Date();
     let dateNow : string = dat.getFullYear() + '-' + dat.getMonth().toString().padStart(2,'0') + '-' + dat.getDate().toString().padStart(2,'0');
-    let timeNow : string = dat.getHours().toString().padStart(2,'0') + ':' + dat.getMinutes().toString().padStart(2);
+    let timeNow : string = dat.getHours().toString().padStart(2,'0') + ':' + dat.getMinutes().toString().padStart(2,'0');
     //console.log("La fecha es: " + dateNow);
     //console.log("La hora es: " + timeNow);
 
@@ -81,8 +88,22 @@ export class CreateTransferComponent implements OnInit {
 
   onCreate(form: TransferI){
     this.apiTransfers.createNewTransfer(form).subscribe(data => {
+      this.viewForm = false;
+      this.viewOK = true;
+      this.dataList = data;
       console.log(data);
+    },err =>{
+      this.viewForm = false;
+      this.viewError = true;
+      this.errList = err.error.message;
+      console.error(err);
     });
+  }
+
+  enableForm(): void{
+    this.viewForm = true;
+    this.viewError = false;
+    this.viewOK = false;
   }
 
 }

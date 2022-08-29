@@ -7,7 +7,7 @@
     N° de cuenta
     [Enviar]
 -->
-<form class="row g-3" [formGroup] = "formRecipient" (ngSubmit) = "onCreate(formRecipient.value)">
+<form *ngIf="viewForm" class="row g-3" [formGroup] = "formRecipient" (ngSubmit) = "onCreate(formRecipient.value)">
 
   <!-- **** Input de RUT **** -->
   <div class="col-md-6">
@@ -58,11 +58,42 @@
   <br>
 
   <!-- **** BUTTON **** -->
-  <button class= "btn btn-primary" onclick=""> Enviar</button>
+  <button class= "btn btn-primary" [disabled]="!formRecipient.valid" onclick=""> Enviar</button>
 
 </form>
 
-<div>
-  Valido: {{ formRecipient.valid | json }}
+<div *ngIf="viewError">
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">
+      <p>Error al agregar nuevo destinatario:</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li *ngFor="let err of errList" class="list-group-item">
+        {{ err }}
+      </li>
+    </ul>
+    <div class="card-footer">
+      <button class= "btn btn-primary" onclick="" (click)="enableForm()"> Volver a intentar </button>
+    </div>
+  </div>
+  <!--Valido: {{ formRecipient.valid | json }} -->
+</div>
+
+<div *ngIf="viewOK">
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">
+      <h5 class="card-title">¡Destinatario creado exitosamente!</h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text">Nombre: {{ dataList.name }}</p>
+      <p class="card-text">Correo: {{ dataList.mail }}</p>
+      <p class="card-text">Banco: {{ dataList.bank }}</p>
+      <p class="card-text">Tipo de Cuenta: {{ dataList.accType }}</p>
+    </div>
+    <div class="card-footer">
+      <button class= "btn btn-primary" onclick="" (click)="enableForm()"> Volver a intentar </button>
+    </div>
+  </div>
+  <!--Valido: {{ formRecipient.valid | json }} -->
 </div>
 <br>
