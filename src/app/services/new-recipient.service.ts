@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class NewRecipientService {
 
-  private url: string = 'http://localhost:3000/';
+  private url: string = 'https://nest-transfer-app.herokuapp.com/';
 
   constructor(private http:HttpClient) { }
 

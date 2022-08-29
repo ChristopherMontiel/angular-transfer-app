@@ -9,7 +9,7 @@ import { ResponseI } from '../models/response.interface';
 })
 export class NewTransferService {
 
-  private url: string = 'http://localhost:3000/';
+  private url: string = 'https://nest-transfer-app.herokuapp.com/';
 
   constructor(private http:HttpClient) { }
 
