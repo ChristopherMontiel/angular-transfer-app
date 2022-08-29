@@ -30,12 +30,12 @@
 
     <label for="amount" class="col-sm-3 col-form-label">Monto:  </label>
     <div class="col-sm-10">
-      <input type="number" class="form-control" id="amount">
+      <input #amountInput type="number" class="form-control" id="amount">
     </div>
 
     <br>
 
-    <a href="#" class="btn btn-primary">Transferir</a>
+    <button type = "button" class= "btn btn-primary" onclick="" (click)="makeTransfer(amountInput.value)"> Transferir</button>
 
   </div>
 </div>
