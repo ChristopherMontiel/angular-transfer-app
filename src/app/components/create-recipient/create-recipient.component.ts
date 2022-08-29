@@ -55,7 +55,7 @@ export class CreateRecipientComponent implements OnInit {
     console.log(form);
     this.apiRecipient.createNewRecipient(form).subscribe(data => {
       console.log(data);
-    })
+    });
   }
  /*  onCreate(){
     console.log(this.formRecipient.value);
