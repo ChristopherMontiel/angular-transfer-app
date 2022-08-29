@@ -1,1 +1,20 @@
-<p>history-transfers works!</p>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Fecha</th>
+      <th scope="col">Rut</th>
+      <th scope="col">Banco</th>
+      <th scope="col">Tipo de Cuenta</th>
+      <th scope="col">Monto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let transfer of transferList" >
+      <th> {{ transfer.date }} </th>
+      <td> {{ transfer.recRutNumber + transfer.recDv }} </td>
+      <td> {{ transfer.recBank }} </td>
+      <td> {{ transfer.recAccType }} </td>
+      <td> {{ transfer.amount }} </td>
+    </tr>
+  </tbody>
+</table>
